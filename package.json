@@ -1,0 +1,14 @@
+{
+  "name": "grupo-radio-formula",
+  "version": "1.0.0",
+  "description": "lista de estaciones radio formula",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Rodrigo Alaguna",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  }
+}
