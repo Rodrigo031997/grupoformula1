@@ -13,6 +13,39 @@ restService.use(
 
 restService.use(bodyParser.json());
 
+restService.post("/echo", function(req, res) {
+  var speech =
+    req.body.queryResult &&
+    req.body.queryResult.parameters &&
+    req.body.queryResult.parameters.echoText
+      ? req.body.queryResult.parameters.echoText
+      : "Estamos teniendo problemas . Intenta de nuevo.";
+  
+  var speechResponse = {
+    google: {
+      expectUserResponse: true,
+      richResponse: {
+        items: [
+          {
+            simpleResponse: {
+              textToSpeech: speech
+            }
+          }
+        ]
+      }
+    }
+  };
+  
+  return res.json({
+    payload: speechResponse,
+    //data: speechResponse,
+    fulfillmentText: speech,
+    speech: speech,
+    displayText: speech,
+    source: "webhook-echo-sample"
+  });
+});
+
 restService.post("/stations", function(req, res) {
   var speech = "";
   switch (req.body.result.parameters.Estaciones.toLowerCase()) {
