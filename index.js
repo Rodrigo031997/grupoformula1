@@ -15,9 +15,9 @@ restService.use(bodyParser.json());
 
 restService.post("/stations", function(req, res) {
   var speech = "";
-  switch (req.body.result.parameters.AudioSample.toLowerCase()) {
+  switch (req.body.result.parameters.Estaciones.toLowerCase()) {
     //Speech Synthesis Markup Language 
-    case "music one":
+    case "ciento tres punto tres":
       speech =
         '<speak><audio src="https://actions.google.com/sounds/v1/cartoon/slide_whistle.ogg">did not get your audio file</audio></speak>';
       break;
